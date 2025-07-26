@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "brainagetemplateclient",
+	"id": "examplemod",
 	"version": "${version}",
-	"name": "BrainageTemplateClient",
+	"name": "ExampleMod",
 	"description": "brainage04's mod template for client-side Fabric mods.",
 	"authors": [
 		"brainage04"
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/brainage04/BrainageTemplateClient"
 	},
 	"license": "MIT",
-	"icon": "assets/brainagetemplateclient/icon.png",
+	"icon": "assets/examplemod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"io.github.brainage04.brainagetemplateclient.BrainageTemplateClient"
+			"com.example.ExampleMod"
 		],
 		"fabric-datagen": [
-			"io.github.brainage04.brainagetemplateclient.datagen.DataGenerator"
+			"com.example.datagen.DataGenerator"
 		],
 		"modmenu": [
-			"io.github.brainage04.brainagetemplateclient.modmenu.ModMenuIntegration"
+			"com.example.modmenu.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"brainagetemplateclient.mixins.json"
+		"examplemod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
@@ -34,5 +34,5 @@
 		"java": ">=21",
 		"fabric-api": "*"
 	},
-	"accessWidener": "brainagetemplateclient.accesswidener"
+	"accessWidener": "examplemod.accesswidener"
 }

@@ -1,4 +1,4 @@
-package io.github.brainage04.brainagetemplateclient.util;
+package com.example.util;
 
 public class StringUtils {
     public static char toUpperCase(char c) {

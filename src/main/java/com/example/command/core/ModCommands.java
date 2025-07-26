@@ -1,6 +1,6 @@
-package io.github.brainage04.brainagetemplateclient.command.core;
+package com.example.command.core;
 
-import io.github.brainage04.brainagetemplateclient.command.TemplateCommand;
+import com.example.command.TemplateCommand;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 
 public class ModCommands {

@@ -1,8 +1,8 @@
-package io.github.brainage04.brainagetemplateclient;
+package com.example;
 
-import io.github.brainage04.brainagetemplateclient.command.core.ModCommands;
-import io.github.brainage04.brainagetemplateclient.config.core.ModConfig;
-import io.github.brainage04.brainagetemplateclient.key.core.ModKeys;
+import com.example.command.core.ModCommands;
+import com.example.config.core.ModConfig;
+import com.example.key.core.ModKeys;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -10,9 +10,9 @@ import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BrainageTemplateClient implements ClientModInitializer {
-	public static final String MOD_ID = "brainagetemplateclient";
-	public static final String MOD_NAME = "BrainageTemplateClient";
+public class ExampleMod implements ClientModInitializer {
+	public static final String MOD_ID = "examplemod";
+	public static final String MOD_NAME = "ExampleMod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override

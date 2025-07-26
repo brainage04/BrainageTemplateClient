@@ -1,4 +1,4 @@
-package io.github.brainage04.brainagetemplateclient.command;
+package com.example.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;

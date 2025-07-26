@@ -1,4 +1,4 @@
-package io.github.brainage04.brainagetemplateclient.mixin;
+package com.example.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

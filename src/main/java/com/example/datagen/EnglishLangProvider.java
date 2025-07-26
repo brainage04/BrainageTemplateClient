@@ -1,8 +1,8 @@
-package io.github.brainage04.brainagetemplateclient.datagen;
+package com.example.datagen;
 
-import io.github.brainage04.brainagetemplateclient.BrainageTemplateClient;
-import io.github.brainage04.brainagetemplateclient.config.core.ModConfig;
-import io.github.brainage04.brainagetemplateclient.util.StringUtils;
+import com.example.ExampleMod;
+import com.example.config.core.ModConfig;
+import com.example.util.StringUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -15,7 +15,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
         super(dataOutput, registryLookup);
     }
 
-    private final String autoConfigPrefix = "text.autoconfig.%s.option".formatted(BrainageTemplateClient.MOD_ID);
+    private final String autoConfigPrefix = "text.autoconfig.%s.option".formatted(ExampleMod.MOD_ID);
 
     private void generateReflectedTranslations(Class<?> clazz, String baseKey, TranslationBuilder translationBuilder) {
         for (Field field : clazz.getFields()) {
@@ -34,7 +34,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     @SuppressWarnings("SameParameterValue")
     private void addAutomaticTranslations(String[] keys, String packageName, TranslationBuilder translationBuilder) {
         for (String key : keys) {
-            translationBuilder.add("%s.%s.%s".formatted(packageName, BrainageTemplateClient.MOD_ID, key), StringUtils.pascalCaseToHumanReadable(key));
+            translationBuilder.add("%s.%s.%s".formatted(packageName, ExampleMod.MOD_ID, key), StringUtils.pascalCaseToHumanReadable(key));
         }
     }
 
@@ -42,8 +42,8 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         // key categories
         translationBuilder.add(
-                "key.category.%s".formatted(BrainageTemplateClient.MOD_ID),
-                BrainageTemplateClient.MOD_NAME
+                "key.category.%s".formatted(ExampleMod.MOD_ID),
+                ExampleMod.MOD_NAME
         );
 
         // keys

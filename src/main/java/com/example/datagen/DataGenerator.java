@@ -1,4 +1,4 @@
-package io.github.brainage04.brainagetemplateclient.datagen;
+package com.example.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
