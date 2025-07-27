@@ -15,5 +15,6 @@ and [script](https://github.com/nea89o/Forge1.8.9Template/blob/master/make-my-ow
 from which I based my workflow and script off of.
 
 # Todo
-Port to 1.21.8
-Test with `Use this template` button (only tested locally so far)
+Refactor script to be simpler (specifically the arguments - 
+mod id and mod name kind of redundant - 
+also might be safe to assume that username is at end of package name maybe?)
