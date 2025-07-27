@@ -8,8 +8,8 @@
 		"brainage04"
 	],
 	"contact": {
-		"homepage": "https://github.com/brainage04/BrainageTemplateClient",
-		"sources": "https://github.com/brainage04/BrainageTemplateClient"
+		"homepage": "https://github.com/brainage04/ExampleMod",
+		"sources": "https://github.com/brainage04/ExampleMod"
 	},
 	"license": "MIT",
 	"icon": "assets/examplemod/icon.png",
