@@ -59,7 +59,8 @@ echo "Setting owner to $owner"
   # lastly, refactor package directory
   mkdir -p "$base"/src/main/java/"$package_dir"
   mv "$base"/src/main/java/com/example/* "$base"/src/main/java/"$package_dir"
-  rm -rf "$base"/src/main/java/com
+  rmdir "$base"/src/main/java/com/example
+  rmdir "$base"/src/main/java/com
 
   rm "$base"/.github/workflows/init.yml
   rm "$(readlink -f $0)"
