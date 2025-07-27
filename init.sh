@@ -51,7 +51,7 @@ echo "Setting owner to $owner"
   # refactor assets directory
   mkdir -p "$base"/src/main/resources/assets/"$modid"
   mv "$base"/src/main/resources/assets/examplemod/* "$base"/src/main/resources/assets/"$modid"
-  rm -rf "$base"/src/main/resources/assets/examplemod
+  rmdir "$base"/src/main/resources/assets/examplemod
 
   # rename main class
   mv "$base"/src/main/java/com/example/ExampleMod.java "$base"/src/main/java/com/example/"$project_name".java
