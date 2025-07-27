@@ -1,38 +1,68 @@
 #!/bin/bash
-print_help() {
-  echo "$0 <new package name> <project name> <modid>"
-}
-
-if [ "$#" -ne "3" ]; then
-  print_help
+if [ "$#" -ne "4" ]; then
+  echo "Usage: $0 <new package name> <project name> <modid> <owner>"
   exit 0
 fi
 
 base=$(dirname "$(readlink -f "$0")")
 echo "Updating $base"
+
 package_name="$1"
 project_name="$2"
 modid="$3"
+owner="$4"
 package_dir=$(echo "$package_name" | tr . /)
 echo "Setting package name to $package_name"
 echo "Setting project name to $project_name"
 echo "Setting package dir to $package_dir"
 echo "Setting mod id to $modid"
+echo "Setting owner to $owner"
+
 (
-  # todo: what the fuck does all this shit do
+  # enable debug tracing
   set -x
 
-  find "$base"/src/main -type f -exec sed -i s/examplemod/"$modid"/g\;s/com.example/"$package_name"/g {} +
-  sed -i s/com.example/"$package_name"/g\;s/examplemod/"$modid"/g "$base"/gradle.properties
-  sed -i s/examplemod/"$project_name"/g "$base"/settings.gradle.kts
+  # refactor mod id, mod name, owner and package name strings
+  # important that owner is done before package name
+  # as owner may or may not be in the package name string
+  # which will cause issues if replaced
+  find "$base/src/main" -type f -exec sed -i \
+      -e "s/examplemod/$modid/g" \
+      -e "s/ExampleMod/$project_name/g" \
+      -e "s/brainage04/$owner/g" \
+      -e "s/com\.example/$package_name/g" {} +
 
+  sed -i \
+        -e "s/examplemod/$modid/g" \
+        -e "s/ExampleMod/$project_name/g" \
+        -e "s/brainage04/$owner/g" "$base/build.gradle"
+
+  sed -i \
+      -e "s/com\.example/$package_name/g" \
+      -e "s/examplemod/$modid/g" "$base/gradle.properties"
+
+  sed -i \
+        -e "s/brainage04/$owner/g" "$base/LICENSE"
+
+  # refactor accesswidener and mixin file names
+  mv "$base"/src/main/resources/examplemod.accesswidener "$base"/src/main/resources/"$modid".accesswidener
+  mv "$base"/src/main/resources/examplemod.mixins.json "$base"/src/main/resources/"$modid".mixins.json
+
+  # refactor assets directory
+  mkdir -p "$base"/src/main/resources/assets/"$modid"
+  mv "$base"/src/main/resources/assets/examplemod/* "$base"/src/main/resources/assets/"$modid"
+  rm -rf "$base"/src/main/resources/assets/examplemod
+
+  # rename main class
+  mv "$base"/src/main/java/com/example/ExampleMod.java "$base"/src/main/java/com/example/"$project_name".java
+
+  # lastly, refactor package directory
   mkdir -p "$base"/src/main/java/"$package_dir"
   mv "$base"/src/main/java/com/example/* "$base"/src/main/java/"$package_dir"
-  mv "$base"/src/main/resources/examplemod.accesswidener "$base"/src/main/resources/"$modid".accesswidener
-  mv "$base"/src/main/resources/mixins.examplemod.json "$base"/src/main/resources/mixins."$modid".json
+  rm -rf "$base"/src/main/java/com
 
   rm "$base"/.github/workflows/init.yml
   rm "$(readlink -f $0)"
 )
-echo "All done"
-echo "Now go commit those changes"
+
+echo "Refactor completed successfully"
