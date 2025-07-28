@@ -49,9 +49,7 @@ echo "Setting owner to $owner"
   mv "$base"/src/main/resources/examplemod.mixins.json "$base"/src/main/resources/"$modid".mixins.json
 
   # refactor assets directory
-  mkdir -p "$base"/src/main/resources/assets/"$modid"
-  mv "$base"/src/main/resources/assets/examplemod/* "$base"/src/main/resources/assets/"$modid"
-  rmdir "$base"/src/main/resources/assets/examplemod
+  mv "$base"/src/main/resources/assets/examplemod "$base"/src/main/resources/assets/"$modid"
 
   # rename main class
   mv "$base"/src/main/java/com/example/ExampleMod.java "$base"/src/main/java/com/example/"$project_name".java

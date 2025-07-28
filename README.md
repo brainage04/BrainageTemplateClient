@@ -19,6 +19,3 @@ Thank you to [nea89o](https://github.com/nea89o)
 for developing the GitHub Actions [workflow](https://github.com/nea89o/Forge1.8.9Template/blob/master/.github/workflows/init.yml)
 and [script](https://github.com/nea89o/Forge1.8.9Template/blob/master/make-my-own.sh)
 from which I based my workflow and script off of.
-
-# Todo
-Cleanup script just a tiny bit
