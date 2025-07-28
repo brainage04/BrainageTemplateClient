@@ -1,22 +1,22 @@
 #!/bin/bash
-if [ "$#" -ne "4" ]; then
-  echo "Usage: $0 <new package name> <project name> <modid> <owner>"
+if [ "$#" -ne "2" ]; then
+  echo "Usage: $0 <owner> <project name>"
   exit 0
 fi
 
 base=$(dirname "$(readlink -f "$0")")
 echo "Updating $base"
 
-package_name="$1"
+owner="$1"
 project_name="$2"
-modid="$3"
-owner="$4"
+package_name="com.github.$owner"
+modid=$(echo "$project_name" | tr '[:upper:]' '[:lower:]')
 package_dir=$(echo "$package_name" | tr . /)
-echo "Setting package name to $package_name"
-echo "Setting project name to $project_name"
-echo "Setting package dir to $package_dir"
-echo "Setting mod id to $modid"
 echo "Setting owner to $owner"
+echo "Setting project name to $project_name"
+echo "Setting package name to $package_name"
+echo "Setting mod id to $modid"
+echo "Setting package dir to $package_dir"
 
 (
   # enable debug tracing
