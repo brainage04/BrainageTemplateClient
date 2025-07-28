@@ -3,10 +3,16 @@ My template for Minecraft Fabric client-side mods. The easiest way to use this i
 
 However, if you are using a Linux-based operating system, it is possible to clone this repository, and perform a refactor by triggering the `init.sh` script like so:
 ```shell
-./init.sh io.github.<github_username> <mod_name> <mod_id> <github_username> 
+./init.sh <package_name> <mod_name> <mod_id> <github_username> 
 ```
 
-Typically for most people `<mod_id>` is just a lowercase version of `<mod_name>`, however I left them as separate arguments just in case.
+This script is designed to work both with GitHub Actions and manual usage, and will safely delete:
+  - Leftover unused folders that are not tracked by Git (src/main/java/com/example and src/main/resources/examplemod).
+  - The `init` workflow and script after successful execution.
+
+Typically for most people `<mod_id>` is just a lowercase version of `<mod_name>`,
+and their package name ends with `<github_username>`,
+however I left them all as separate arguments just in case.
 
 # Credits
 Thank you to [nea89o](https://github.com/nea89o)
@@ -15,6 +21,4 @@ and [script](https://github.com/nea89o/Forge1.8.9Template/blob/master/make-my-ow
 from which I based my workflow and script off of.
 
 # Todo
-Refactor script to be simpler (specifically the arguments - 
-mod id and mod name kind of redundant - 
-also might be safe to assume that username is at end of package name maybe?)
+Cleanup script just a tiny bit
