@@ -18,7 +18,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          owner=$(echo $GITHUB_REPOSITORY | cut -d/ -f1')
+          owner=$(echo $GITHUB_REPOSITORY | cut -d/ -f1)
           mod_name=$(echo $GITHUB_REPOSITORY | cut -d/ -f2 | tr -d "-" | tr -d ".")
           ./init.sh "$owner" "$mod_name"
           
